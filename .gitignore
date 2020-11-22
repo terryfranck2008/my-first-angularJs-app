@@ -2,6 +2,7 @@
 /deploy/
 /benchpress-build/
 .DS_Store
+node_modules
 gen_docs.disable
 test.disable
 regression/temp*.html
@@ -10,7 +11,6 @@ performance/temp*.html
 *~
 *.swp
 angular.js.tmproj
-/node_modules
 angular.xcodeproj
 .firebase/
 .idea
