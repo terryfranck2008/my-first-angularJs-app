@@ -1,0 +1,58 @@
+<div class="row ">
+    <div class="col-md-12 text-center bg-light">
+
+        <h1>Home Page</h1>
+        <p>{{message}}</p>
+        <p>Data: {{greeting}}, {{data | date : format : shortDate}} <i class="fa fa-spinner fa-spin"></i></p>
+        <div class="row">
+          <div class="col-md-6">
+
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                  Books
+                </div>
+                <p class="alert alert-danger">My Wish List Count: {{wishListCount}}</p>
+                <ul class="list-group list-group-flush" ng-repeat="book in books">
+                  <li class="list-group-item">{{book.title}}<button class="btn btn-success mr-2" ng-click="addToWishList(book)">Add to wish List</button><button class="btn btn-primary" ng-click="like(book)" ng-disabled="book.disabled">Like</button></li>
+                </ul>
+              </div>
+          </div>
+          <div class="col-md-6">
+
+            <div class="card" style="width: 18rem;" ng-if="users.length > 0">
+                <div class="card-header">
+                  Users
+                </div>
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Birthday</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="user in users">
+                      <th scope="row">{{user.id}}</th>
+                      <td>{{user.name}}</td>
+                      <td>{{user.birthday}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+
+    </div>
+    <div class="col-md-3 mt-3 mb-3">
+        <label for="">Message: </label>
+        <input type="text" class="form-control" ng-model="message" placeholder="Enter message" >
+        <hello-world message-attr = "message" show-message-attr="showMessage()"></hello-world>
+        <ciao>
+
+          <hello></hello>
+        </ciao>
+    </div>
+</div>

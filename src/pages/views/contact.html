@@ -1,0 +1,51 @@
+<div ng-show="registrationForm.$pristine">Form input has not yet started</div>
+<div ng-show="registrationForm.$dirty">Form input has started</div>
+
+<form name="registrationForm" ng-submit="person.register()" novalidate>
+    <div class="row">
+
+        <div class="col-md-6 form-group">
+            <label for="firstName">Nome: </label>
+            <input type="text" id="firstName" class="form-control" name="firstName" ng-model="person.firstName" required
+                placeholder="Nome" />
+            <span ng-show="firstNameInvalid" ng-class="{'invalid': firstNameInvalid}">campo Nome non compilato</span>
+        </div>
+        <div class="col-md-6 form-group">
+            <label for="lastName">Cognome: </label>
+            <input type="text" id="lastName" class="form-control" name="lastName" ng-model="person.lastName" required
+                placeholder="Cognome" />
+            <span ng-show="lastNameInvalid">campo Cognome non compilato</span>
+        </div>
+        <div class="col-md-6 form-group">
+            <label for="email">Indirizzo E-mail: </label>
+            <input type="email" name="email" class="form-control" id="email" ng-model="person.email" required
+                placeholder="Email" />
+        </div>
+        <div class="col-md-6 form-group">
+            <label for="channels">Come ci hai conosciuto? </label>
+            <select type="radio" name="channels" class="form-control" id="channels" ng-model="person.channelSelected"
+                ng-options="obj.value as obj.label for obj in person.channels">
+                <option value="">Come ci hai conosciuto? </option>
+            </select>
+        </div>
+        <div class="col-md-6 form-group">
+            <div class="form-check">
+                <input type="checkbox" name="newsLetterOpt" class="form-check-input" id="newsLetterOpt"
+                    ng-model="person.newsLetter" placeholder="Newsletter" />
+                <label class="form-check-label" for="newsLetterOpt">Vuoi iscriverti alla nostra newsletter?
+                </label>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-6 form-group">
+            <input type="submit" value="Registra" class="btn btn-success" ng-click="person.register()">
+        </div>
+    </div>
+</form>
+
+<div ng-show="doShow">
+    Thank you for taking the time to register!
+
+</div>
